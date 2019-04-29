@@ -71,7 +71,7 @@ class CASClient(object):
         self.session_storage_adapter.create(
             ticket,
             payload=payload,
-            expires=expires,
+            expires=expires
             )
 
     def delete_session(self, ticket):
@@ -108,7 +108,7 @@ class CASClient(object):
             params['service'] = service_url
         url = '{}?{}'.format(
             self._get_api_url(api_resource),
-            urlencode(params),
+            urlencode(params)
             )
         return url
 
@@ -118,7 +118,7 @@ class CASClient(object):
         authenticator,
         private_key,
         service_url,
-        username,
+        username
     ):
         '''
         Build an auth token login URL.
@@ -356,7 +356,7 @@ class CASClient(object):
         url = template.format(
             api_resource=api_resource,
             auth_prefix=self.auth_prefix,
-            server_url=self.server_url,
+            server_url=self.server_url
             )
         return url
 
@@ -373,7 +373,7 @@ class CASClient(object):
         url = template.format(
             auth_prefix=self.auth_prefix,
             query_string=query_string,
-            server_url=self.server_url,
+            server_url=self.server_url
             )
         return url
 
@@ -384,7 +384,7 @@ class CASClient(object):
             auth_prefix=self.auth_prefix,
             proxy_callback=self.proxy_callback,
             server_url=self.server_url,
-            ticket=ticket,
+            ticket=ticket
             )
         return url
 
@@ -394,8 +394,8 @@ class CASClient(object):
         url = template.format(
             auth_prefix=self.auth_prefix,
             proxy_callback=self.proxy_callback,
-            validate=self.validate_url,
-            ticket=ticket,
+            validate_url=self.validate_url,
+            ticket=ticket
             )
         return url
 
@@ -406,7 +406,7 @@ class CASClient(object):
             auth_prefix=self.auth_prefix,
             validate_url=self.validate_url,
             service_url=service_url or self.service_url,
-            ticket=ticket,
+            ticket=ticket
             )
         if self.proxy_url:
             url = '{url}&pgtUrl={proxy_url}'.format(url, self.proxy_url)
